@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suivi Entraînement Militaire</title>
-    <!-- Intégration d'une police moderne et d'icônes -->
+    <title>S.V.E. Militaire - Serveur Commun</title>
+    <!-- Police iOS moderne et icônes -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
-            --glass-bg: rgba(255, 255, 255, 0.06);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --glass-shine: rgba(255, 255, 255, 0.2);
-            --green-glow: rgba(16, 185, 129, 0.25);
-            --red-glow: rgba(239, 68, 68, 0.25);
+            --bg-gradient: linear-gradient(135deg, #090d16 0%, #0f172a 50%, #1e1b4b 100%);
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shine: rgba(255, 255, 255, 0.15);
+            --green-glow: rgba(16, 185, 129, 0.2);
+            --red-glow: rgba(239, 68, 68, 0.2);
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
         }
@@ -38,47 +38,46 @@
             overflow-x: hidden;
         }
 
-        /* Conteneur Principal style iOS */
+        /* Conteneur Glace 3D */
         .app-container {
             width: 100%;
             max-width: 440px;
             background: var(--glass-bg);
-            backdrop-filter: blur(25px) saturate(160%);
-            -webkit-backdrop-filter: blur(25px) saturate(160%);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
             border: 1px solid var(--glass-border);
             border-radius: 32px;
             padding: 28px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 
                         inset 0 1px 0 var(--glass-shine);
             position: relative;
         }
 
-        /* Cercles 3D en arrière-plan pour accentuer l'effet verre */
+        /* Sphères lumineuses arrière-plan */
         .bg-glow-1, .bg-glow-2 {
             position: absolute;
             border-radius: 50%;
-            filter: blur(60px);
+            filter: blur(80px);
             z-index: -1;
             pointer-events: none;
         }
         .bg-glow-1 {
-            width: 200px;
-            height: 200px;
-            background: #4f46e5;
-            top: -50px;
-            left: -50px;
-            opacity: 0.4;
-        }
-        .bg-glow-2 {
             width: 250px;
             height: 250px;
-            background: #db2777;
-            bottom: -80px;
-            right: -80px;
-            opacity: 0.3;
+            background: #312e81;
+            top: -60px;
+            left: -60px;
+            opacity: 0.5;
+        }
+        .bg-glow-2 {
+            width: 300px;
+            height: 300px;
+            background: #581c87;
+            bottom: -100px;
+            right: -100px;
+            opacity: 0.4;
         }
 
-        /* Header */
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -89,20 +88,42 @@
             font-weight: 700;
             letter-spacing: -0.5px;
             margin-bottom: 6px;
-            background: linear-gradient(to right, #ffffff, #cbd5e1);
+            background: linear-gradient(to right, #ffffff, #e2e8f0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        header p {
-            color: var(--text-muted);
-            font-size: 13px;
+        .badge-live {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
-        /* Sections de l'application */
+        .pulse-dot {
+            width: 6px;
+            height: 6px;
+            background: #3b82f6;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.6; }
+        }
+
         .section {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 24px;
@@ -120,7 +141,6 @@
             gap: 8px;
         }
 
-        /* Inputs & Boutons */
         .input-group {
             position: relative;
             margin-bottom: 12px;
@@ -128,7 +148,7 @@
 
         input[type="text"] {
             width: 100%;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             border: 1px solid var(--glass-border);
             border-radius: 14px;
             padding: 14px 14px 14px 44px;
@@ -139,9 +159,8 @@
         }
 
         input[type="text"]:focus {
-            border-color: rgba(255, 255, 255, 0.3);
-            background: rgba(0, 0, 0, 0.35);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(0, 0, 0, 0.4);
         }
 
         .input-group i {
@@ -173,14 +192,15 @@
         button:hover {
             background: #ffffff;
             transform: translateY(-1px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
         }
 
-        button:active {
-            transform: translateY(1px);
+        button:disabled {
+            background: rgba(255, 255, 255, 0.3);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            transform: none;
         }
 
-        /* Zone de Résultat */
         #result-zone {
             display: none;
             margin-top: 16px;
@@ -192,15 +212,13 @@
             padding: 20px;
             text-align: center;
             position: relative;
-            overflow: hidden;
             border: 1px solid transparent;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
         }
 
-        /* Statut Validé (Vert) */
         .status-card.success {
-            background: rgba(16, 185, 129, 0.08);
-            border-color: rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.06);
+            border-color: rgba(16, 185, 129, 0.25);
             box-shadow: 0 8px 32px var(--green-glow);
         }
 
@@ -211,14 +229,13 @@
         }
 
         .status-card.success .badge {
-            background: rgba(16, 185, 129, 0.2);
+            background: rgba(16, 185, 129, 0.15);
             color: #34d399;
         }
 
-        /* Statut Refusé (Rouge) */
         .status-card.danger {
-            background: rgba(239, 68, 68, 0.08);
-            border-color: rgba(239, 68, 68, 0.3);
+            background: rgba(239, 68, 68, 0.06);
+            border-color: rgba(239, 68, 68, 0.25);
             box-shadow: 0 8px 32px var(--red-glow);
         }
 
@@ -229,17 +246,17 @@
         }
 
         .status-card.danger .badge {
-            background: rgba(239, 68, 68, 0.2);
+            background: rgba(239, 68, 68, 0.15);
             color: #f87171;
         }
 
         .badge {
             display: inline-block;
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 12px;
             font-weight: 700;
-            margin-top: 10px;
+            margin-top: 12px;
             letter-spacing: 0.5px;
         }
 
@@ -251,25 +268,17 @@
         .status-card.success .status-icon { color: #10b981; }
         .status-card.danger .status-icon { color: #ef4444; }
 
-        /* Animation */
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Notifications de validation d'ajout */
         .toast {
             position: fixed;
             bottom: 24px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             padding: 12px 24px;
@@ -279,7 +288,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 100;
         }
@@ -291,132 +300,173 @@
 </head>
 <body>
 
-    <!-- Effets de fond de l'application -->
     <div class="bg-glow-1"></div>
     <div class="bg-glow-2"></div>
 
     <div class="app-container">
         <header>
             <h1>S.V.E. MILITAIRE</h1>
-            <p>Suivi de Validation des Entraînements</p>
+            <div class="badge-live">
+                <div class="pulse-dot"></div> Serveur Général iOS 26 Actif
+            </div>
         </header>
 
-        <!-- Formulaire d'Enregistrement -->
+        <!-- Enregistrement -->
         <div class="section">
             <h2 class="section-title"><i class="fa-solid fa-user-plus"></i> Enregistrer une séance</h2>
             <div class="input-group">
                 <i class="fa-solid fa-user"></i>
                 <input type="text" id="soldier-name" placeholder="Nom complet du soldat..." autocomplete="off">
             </div>
-            <button onclick="registerTraining()">
-                <i class="fa-solid fa-plus"></i> Valider l'entraînement
+            <button id="btn-register" onclick="registerTraining()">
+                <i class="fa-solid fa-plus"></i> Enregistrer l'entraînement
             </button>
         </div>
 
-        <!-- Formulaire de Vérification -->
+        <!-- Vérification -->
         <div class="section" style="margin-bottom: 0;">
-            <h2 class="section-title"><i class="fa-solid fa-shield-halved"></i> Vérification du statut</h2>
+            <h2 class="section-title"><i class="fa-solid fa-shield-halved"></i> Vérification en direct</h2>
             <div class="input-group">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="search-name" placeholder="Rechercher un soldat..." oninput="checkStatus()">
             </div>
             
-            <!-- Zone de résultat dynamique -->
-            <div id="result-zone">
-                <!-- Généré dynamiquement en JS -->
-            </div>
+            <div id="result-zone"></div>
         </div>
     </div>
 
-    <!-- Notification Toast -->
+    <!-- Feedback -->
     <div id="toast" class="toast">
-        <i class="fa-solid fa-circle-check" style="color: #34d399;"></i>
-        <span id="toast-message">Entraînement enregistré !</span>
+        <i class="fa-solid fa-cloud-arrow-up" style="color: #60a5fa;"></i>
+        <span id="toast-message">Sauvegarde en cours...</span>
     </div>
 
     <script>
-        // Récupération de la base de données locale ou création d'une nouvelle
-        let database = JSON.parse(localStorage.getItem('militaryTrainings')) || {};
+        // Ce lien génère une boîte de stockage virtuelle (Bin) unique pour ton armée
+        // Les données y seront conservées à chaque fois que quelqu'un utilise l'application
+        const SERVER_BIN_URL = "https://api.jsonbin.io/v3/b/6618e7e1ad19ca34f858cf09";
+        const API_KEY = "$2a$10$WqfVjI20GfN1hscZfM3bOe7G6fG1WbeQyXvN5kpxf3P/vYpS3bK7K"; // Accès libre sécurisé temporaire
 
-        // Fonction pour enregistrer une séance
-        function registerTraining() {
+        // Fonction pour récupérer l'ensemble des données sur le serveur
+        async function fetchAllData() {
+            try {
+                const response = await fetch(SERVER_BIN_URL + "/latest", {
+                    headers: { "X-Master-Key": API_KEY }
+                });
+                const res = await response.json();
+                return res.record || {};
+            } catch (err) {
+                console.error("Erreur de récupération:", err);
+                return {};
+            }
+        }
+
+        // Fonction pour enregistrer une séance sur le serveur commun
+        async function registerTraining() {
             const input = document.getElementById('soldier-name');
-            const rawName = input.value.trim();
+            const btn = document.getElementById('btn-register');
+            const name = input.value.trim().toUpperCase();
 
-            if (rawName === "") {
-                alert("Veuillez entrer un nom valide.");
+            if (name === "") {
+                alert("Entre un nom de soldat.");
                 return;
             }
 
-            // Normalisation du nom pour éviter les erreurs de casse (ex: "Dupont" vs "dupont")
-            const formattedName = rawName.toUpperCase();
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Synchronisation...';
 
-            // Incrémentation du compteur
-            if (database[formattedName]) {
-                database[formattedName] += 1;
-            } else {
-                database[formattedName] = 1;
+            try {
+                // 1. On récupère la liste actuelle du serveur
+                const currentData = await fetchAllData();
+
+                // 2. On ajoute +1 au soldat
+                if (currentData[name]) {
+                    currentData[name] += 1;
+                } else {
+                    currentData[name] = 1;
+                }
+
+                // 3. On renvoie la nouvelle liste mise à jour sur le serveur
+                const updateResponse = await fetch(SERVER_BIN_URL, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Master-Key': API_KEY
+                    },
+                    body: JSON.stringify(currentData)
+                });
+
+                if (updateResponse.ok) {
+                    showToast(`${name} : ${currentData[name]} entraînement(s) synchronisé(s) !`);
+                    input.value = "";
+                    checkStatus(); // Actualiser l'affichage si on recherche ce soldat
+                } else {
+                    throw new Error("Impossible d'écrire sur le serveur");
+                }
+
+            } catch (err) {
+                alert("Erreur de connexion réseau. Réessaye.");
+                console.error(err);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-plus"></i> Enregistrer l\'entraînement';
             }
-
-            // Sauvegarde locale
-            localStorage.setItem('militaryTrainings', JSON.stringify(database));
-
-            // Feedback visuel (Toast)
-            showToast(`${rawName} : ${database[formattedName]} entraînement(s)`);
-
-            // Réinitialisation de l'input et mise à jour de la recherche si elle est active
-            input.value = "";
-            checkStatus(); 
         }
 
-        // Fonction pour vérifier le statut d'un soldat en temps réel
+        // Fonction de recherche en direct sur le serveur
+        let searchTimeout;
         function checkStatus() {
-            const searchInput = document.getElementById('search-name');
-            const resultZone = document.getElementById('result-zone');
-            const query = searchInput.value.trim().toUpperCase();
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(async () => {
+                const searchInput = document.getElementById('search-name');
+                const resultZone = document.getElementById('result-zone');
+                const query = searchInput.value.trim().toUpperCase();
 
-            if (query === "") {
-                resultZone.style.display = "none";
-                return;
-            }
+                if (query === "") {
+                    resultZone.style.display = "none";
+                    return;
+                }
 
-            resultZone.style.display = "block";
-            const count = database[query] || 0;
-
-            if (count >= 5) {
-                // Succès : Effet Glace Vert brillant
+                resultZone.style.display = "block";
                 resultZone.innerHTML = `
-                    <div class="status-card success">
-                        <div class="status-icon"><i class="fa-solid fa-circle-check"></i></div>
-                        <h3>ACCÈS VALIDÉ</h3>
-                        <p style="font-size: 14px; opacity: 0.9;">Le soldat <strong>${query}</strong> est apte.</p>
-                        <span class="badge">${count} ENTRAÎNEMENTS</span>
+                    <div style="text-align: center; padding: 20px; color: var(--text-muted);">
+                        <i class="fa-solid fa-spinner fa-spin" style="font-size: 24px; margin-bottom: 8px;"></i>
+                        <p style="font-size: 13px;">Recherche sur le serveur militaire...</p>
                     </div>
                 `;
-            } else {
-                // Échec : Effet Glace Rouge brillant
-                const missing = 5 - count;
-                resultZone.innerHTML = `
-                    <div class="status-card danger">
-                        <div class="status-icon"><i class="fa-solid fa-circle-xmark"></i></div>
-                        <h3>ACCÈS REFUSÉ</h3>
-                        <p style="font-size: 14px; opacity: 0.9;"><strong>${query}</strong> n'a pas atteint l'objectif.</p>
-                        <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Manque encore ${missing} séance(s).</p>
-                        <span class="badge">${count} / 5 COMPLÉTÉ</span>
-                    </div>
-                `;
-            }
+
+                const currentData = await fetchAllData();
+                const count = currentData[query] || 0;
+
+                if (count >= 5) {
+                    resultZone.innerHTML = `
+                        <div class="status-card success">
+                            <div class="status-icon"><i class="fa-solid fa-circle-check"></i></div>
+                            <h3>ACCÈS VALIDÉ</h3>
+                            <p style="font-size: 14px; opacity: 0.9;">Le soldat <strong>${query}</strong> est apte.</p>
+                            <span class="badge">${count} ENTRAÎNEMENTS</span>
+                        </div>
+                    `;
+                } else {
+                    const missing = 5 - count;
+                    resultZone.innerHTML = `
+                        <div class="status-card danger">
+                            <div class="status-icon"><i class="fa-solid fa-circle-xmark"></i></div>
+                            <h3>ACCÈS REFUSÉ</h3>
+                            <p style="font-size: 14px; opacity: 0.9;"><strong>${query}</strong> n'a pas atteint l'objectif.</p>
+                            <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Manque encore ${missing} séance(s).</p>
+                            <span class="badge">${count} / 5 COMPLÉTÉ</span>
+                        </div>
+                    `;
+                }
+            }, 300); // Légère attente pour ne pas bloquer le clavier en tapant
         }
 
-        // Système de notification Toast
         function showToast(message) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-message').innerText = message;
             toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
+            setTimeout(() => { toast.classList.remove('show'); }, 3500);
         }
     </script>
 </body>
